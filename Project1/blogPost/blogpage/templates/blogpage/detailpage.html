@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ blog.title }}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+        
+        :root {
+            --gray-darker: #444444;
+            --gray-dark: #696969;
+            --gray: #999999;
+            --gray-light: #cccccc;
+            --gray-lighter: #ececec;
+            --gray-lightest: #f2f2f2;
+            --primary-color: #007BFF;
+            --primary-color-dark: #0056b3;
+        }
+
+        *,
+        *::before,
+        *::after { 
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #f0f0f0;
+        }
+
+        body {
+            color: var(--gray);
+            font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            margin-top: 6%;
+            margin-bottom: 6%;
+            max-width: 1200px;
+            width: 100%;
+            background-color: var(--content-bg-color);
+            border-radius: 10px;
+            box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+            padding: 20px;
+            display: grid;
+            grid-template-rows: auto auto auto auto;
+            gap: 20px;
+        }
+
+        .content h1 {
+            grid-row: 1;
+            text-align: center;
+            font-size: 50px;
+            color: var(--text-color);
+        }
+
+        .image {
+            grid-row: 2;
+        }
+
+        .image img {
+            width: 100%;
+            height: 70vh; 
+            border-radius: 10px;
+        }
+
+        .blog-details {
+            grid-row: 3;
+            text-align: center;
+        }
+
+        .blog-content {
+            grid-row: 4;
+            text-align: left;
+            color: var(--desc-color);
+        }
+
+        p {
+            font-size: 18px;
+            color: var(--desc-color);
+            margin: 10px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: var(--primary-color-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>{{ blog.title }}</h1>
+        </div>
+        <div class="image">
+            <img src="{{ blog.image }}" alt="{{ blog.title }}">
+        </div>
+        <div class="blog-details">
+            <p>{{ blog.desc }}</p>
+            <a href="{% url 'Listpage' %}">Back to list</a>
+        </div>
+    </div>
+</body>
+</html>

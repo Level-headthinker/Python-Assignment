@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+        
+        :root {
+            --gray-darker: #444444;
+            --gray-dark: #696969;
+            --gray: #999999;
+            --gray-light: #cccccc;
+            --gray-lighter: #ececec;
+            --gray-lightest: #f2f2f2;
+            --primary-color: #007BFF;
+            --primary-color-dark: #0056b3;
+        }
+        *,
+        *::before,
+        *::after { 
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #f0f0f0;
+        }
+        body {
+            color: var(--gray);
+            font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .container {
+            margin-top: 6%;
+            margin-bottom: 6%;
+            max-width: 1200px;
+            width: 100%;
+            background-color: var(--content-bg-color);
+            border-radius: 10px;
+            box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-template-rows: auto auto auto auto;
+            gap: 20px;
+        }
+        h1 {
+            font-size: 64px;
+            margin-right: 100px;
+        }
+        p {
+            font-size: 18px;
+            color: black; /* Added for better text visibility */
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 400px;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="file"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            align-self: center;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Page</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title"><br><br>
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image"><br><br>
+            <label for="desc">Description:</label>
+            <textarea id="desc" name="desc"></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
